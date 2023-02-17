@@ -9,6 +9,7 @@ class FacturacionApp:
         self.master = master
         master.title("Facturación App")
         master.config(bg="#00A3E0")
+        master.geometry("350x300")  # establecer tamaño fijo de ventana
 
         # agregando estilo al Label
         self.label = tk.Label(master, text="Seleccione una opción:", bg="#00A3E0", fg="#fff", font=("Arial", 16))
@@ -28,6 +29,7 @@ class FacturacionApp:
 
         self.quit_button = tk.Button(master, text="Salir", bg="#fff", fg="#00A3E0", font=("Arial", 12), command=master.quit, width=button_width, height=button_height)
         self.quit_button.pack(pady=5)
+
     def nuevo(self):
         archivo = self.abrir_archivo()
         if archivo:
@@ -119,6 +121,7 @@ class FacturacionApp:
     def abrir_archivo(self):
         archivo = filedialog.askopenfilename(filetypes=[('Archivo Excel', '*.xls')])
         return archivo
+
 
 root = tk.Tk()
 facturacion_app = FacturacionApp(root)
