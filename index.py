@@ -3,6 +3,7 @@ import xlrd
 import xlwt
 import tkinter as tk
 from tkinter import filedialog
+import datetime
 
 class FacturacionApp:
     def __init__(self, master):
@@ -102,8 +103,10 @@ class FacturacionApp:
         columnas = [tupla[1] for tupla in cursor.fetchall()]
         # Cerrar la conexión a la base de datos
         conexion.close()
+        # Definir los formatos de celda
+        estilo_titulo = xlwt.easyxf('font: bold 1, color black;')
         for i in range(len(columnas)):
-            hoja.write(0, i, columnas[i])
+            hoja.write(0, i, columnas[i],estilo_titulo)
         # Escribir los datos
         for i in range(len(datos)):
             fila = datos[i]
