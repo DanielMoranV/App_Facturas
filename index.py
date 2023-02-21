@@ -81,7 +81,7 @@ class FacturacionApp:
                     cursor.execute('INSERT INTO datos (num_fac, fec_fac, importe, fec_pag, num_pag, cod_emp, cia, diasconv, diasfac, observ, nom_pac, nom_emp, fecha_envio, fecha_recepcion, observacion) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', fila + ['', '', ''])
                 # Si la factura existe, actualizarla en la base de datos
                 else:
-                    cursor.execute('UPDATE datos SET fec_pag=?, num_pag=?, diasconv=? WHERE num_fac = ?', (fila[3], fila[4], fila[7], fila[0]))
+                    cursor.execute('UPDATE datos SET fec_pag=?, num_pag=?, diasfac=? WHERE num_fac = ?', (fila[3], fila[4], fila[8], fila[0]))
             tk.messagebox.showinfo("Información", "Registros actualizados exitosamente.")
         # Cerrar la conexión a la base de datos
         conexion.commit()
